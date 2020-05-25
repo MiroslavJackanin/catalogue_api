@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header :show-home="showHome" :toggle-home="toggleHome"></Header>
+    <Category v-if="showCategories" :toggle-categories="toggleCategories" :chosen-ctg="chosenCtg"></Category>
+    <Page v-if="showPage" :chosen-ctg="chosenCtg"></Page>
+    <router-link to="/foo">go to router link</router-link>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Header from "@/components/Header";
+  import Category from "@/components/Category";
+  import Page from "@/components/Page";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      Category, Header, Page
+    },
+    data(){
+      return{
+        showCategories: true,
+        showHome: false,
+        showPage: false,
+        chosenCtg: "",
+      }
+    },
+    methods:{
+      toggleCategories(category){
+        this.showCategories = !this.showCategories;
+        this.showHome = true;
+        this.showPage = true;
+
+        this.chosenCtg = category;
+      },
+      toggleHome(){
+        this.showHome = !this.showHome;
+        this.showCategories = true;
+        this.showPage = false;
+      }
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
