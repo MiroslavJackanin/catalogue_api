@@ -1,11 +1,7 @@
 <template>
     <div class="page">
-        {{chosenCtg}}
         <div v-for="(item, index) in ctgData" :key="index">
-            <button
-                    class="pgItem">
-                {{Object.values(item)[0]}}
-            </button>
+            <router-link :to="{path:$route.params.category +'/'+ Object.values(item)[0]}">{{Object.values(item)[0]}}</router-link>
         </div>
     </div>
 </template>
@@ -13,17 +9,14 @@
 <script>
     export default {
         name: "Page",
-        props: ["chosenCtg"],
         data(){
             return{
-                chosenCategory: this.chosenCtg,
                 ctgData: [],
             }
         },
         methods:{
             fetchData(){
-                let category = this.chosenCategory;
-                console.log(category);
+                let category = this.$route.params.category;
                 const myRequest = new Request("https://swapi.dev/api/"+category+"/");
 
                 fetch(myRequest)
@@ -38,10 +31,9 @@
                                 y = `${data.results[key].name}`;
                             temp.push({[x]:y});
                         }
-                        console.log(temp);
                         this.ctgData = temp;
                     })
-            }
+            },
         },
         created(){
             this.fetchData();
@@ -50,10 +42,10 @@
 </script>
 
 <style scoped>
-.page{
-    border-style: solid;
-    border-color: green;
-    min-height: 100px;
-    height: auto;
-}
+    .page{
+        border-style: solid;
+        border-color: green;
+        min-height: 100px;
+        height: auto;
+    }
 </style>

@@ -1,11 +1,7 @@
 <template>
     <div class="categories">
         <div v-for="(category, index) in categories" :key="index">
-            <button
-                    class="ctgBtn"
-                    @click="toggleCategories(Object.keys(category)[0])">
-                {{Object.keys(category)[0]}}
-            </button>
+            <router-link :to="{path:Object.keys(category)[0]}">{{Object.keys(category)[0]}}</router-link>
         </div>
     </div>
 </template>
@@ -13,7 +9,6 @@
 <script>
     export default {
         name: "Category",
-        props: ["toggleCategories", "chosenCtg"],
         data(){
             return{
                 categories: [],
@@ -43,8 +38,9 @@
 </script>
 
 <style scoped>
-.categories{
-    border-style: solid;
-    border-color: red;
-}
+    .categories{
+        border-style: solid;
+        border-color: red;
+        min-height: 100px;
+    }
 </style>

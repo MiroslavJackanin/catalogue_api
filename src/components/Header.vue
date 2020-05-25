@@ -1,13 +1,14 @@
 <template>
     <div class="header">
-        <button v-if="showHome" @click="toggleHome">Home</button>
+        Star Wars Library
+        <br>
+        <router-link to="/">Home</router-link>
     </div>
 </template>
 
 <script>
     export default {
         name: "Header",
-        props: ["showHome", "toggleHome"],
     }
 </script>
 
