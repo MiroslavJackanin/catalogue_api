@@ -1,7 +1,7 @@
 <template>
     <div class="page">
-        <div v-for="(item, index) in ctgData" :key="index">
-            <router-link :to="{path:$route.params.category +'/'+ Object.values(item)[0]}">{{Object.values(item)[0]}}</router-link>
+        <div v-for="(item, index) in ctgData" :key="index=index+1">
+            <router-link :to="{path:$route.params.category +'/'+ index}">{{Object.values(item)[0]}}</router-link>
         </div>
     </div>
 </template>

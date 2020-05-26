@@ -1,12 +1,12 @@
 <template>
     <div class="starships">
-        Model: {{itemData[0].model}}
+        Model: {{itemData.model}}
         <br>
-        Length: {{itemData[0].length}}
+        Length: {{itemData.length}}
         <br>
-        Crew: {{itemData[0].crew}}
+        Crew: {{itemData.crew}}
         <br>
-        Starship class: {{itemData[0].starship_class}}
+        Starship class: {{itemData.starship_class}}
     </div>
 </template>
 

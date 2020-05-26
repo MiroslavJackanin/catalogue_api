@@ -1,7 +1,5 @@
 <template>
     <div class="item">
-        helo {{$route.params.item}} {{$route.params.category}}
-        <br><br>
         <people v-if="$route.params.category === 'people'" :item-data="itemData"></people>
         <planets v-if="$route.params.category === 'planets'" :item-data="itemData"></planets>
         <films v-if="$route.params.category === 'films'" :item-data="itemData"></films>
@@ -31,25 +29,19 @@
         },
         data(){
             return{
-                itemData: [],
+                itemData: {},
             }
         },
         methods:{
             fetchData(){
                 let category = this.$route.params.category;
-                let item = this.$route.params.item;
+                let item = this.$route.params.item-1;
                 const myRequest = new Request("https://swapi.dev/api/"+category+"/");
 
                 fetch(myRequest)
                     .then((response) => {return response.json()})
                     .then(data => {
-                        let tempx;
-                        if (category === "films")
-                            tempx = data.results.filter(x => x.title === item);
-                        else
-                            tempx = data.results.filter(x => x.name === item);
-                        console.log(tempx);
-                        this.itemData = tempx;
+                        this.itemData = data.results[item];
                     })
             },
         },

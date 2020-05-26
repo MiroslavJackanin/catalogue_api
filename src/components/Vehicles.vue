@@ -1,12 +1,12 @@
 <template>
     <div class="vehicles">
-        Model: {{itemData[0].model}}
+        Model: {{itemData.model}}
         <br>
-        Length: {{itemData[0].length}}
+        Length: {{itemData.length}}
         <br>
-        Crew: {{itemData[0].crew}}
+        Crew: {{itemData.crew}}
         <br>
-        Vehicle class: {{itemData[0].vehicle_class}}
+        Vehicle class: {{itemData.vehicle_class}}
     </div>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
     <div class="films">
-        Release date: {{itemData[0].release_date}}
+        Release date: {{itemData.release_date}}
         <br>
-        Director: {{itemData[0].director}}
+        Director: {{itemData.director}}
         <br>
-        Producer: {{itemData[0].producer}}
+        Producer: {{itemData.producer}}
     </div>
 </template>
 

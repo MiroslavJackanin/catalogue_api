@@ -1,12 +1,12 @@
 <template>
     <div class="planets">
-        Climate: {{itemData[0].climate}}
+        Climate: {{itemData.climate}}
         <br>
-        Diameter: {{itemData[0].diameter}}
+        Diameter: {{itemData.diameter}}
         <br>
-        Gravity: {{itemData[0].gravity}}
+        Gravity: {{itemData.gravity}}
         <br>
-        Terrain: {{itemData[0].terrain}}
+        Terrain: {{itemData.terrain}}
     </div>
 </template>
 

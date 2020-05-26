@@ -1,12 +1,14 @@
 <template>
     <div class="people">
-        Birth year: {{itemData[0].birth_year}}
+        {{itemData.name}}
         <br>
-        Gender: {{itemData[0].gender}}
+        Birth year: {{itemData.birth_year}}
         <br>
-        Eye color: {{itemData[0].eye_color}}
+        Gender: {{itemData.gender}}
         <br>
-        Hair color: {{itemData[0].hair_color}}
+        Eye color: {{itemData.eye_color}}
+        <br>
+        Hair color: {{itemData.hair_color}}
     </div>
 </template>
 

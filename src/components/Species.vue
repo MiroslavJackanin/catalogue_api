@@ -1,12 +1,12 @@
 <template>
     <div class="species">
-        Classification: {{itemData[0].classification}}
+        Classification: {{itemData.classification}}
         <br>
-        Designation: {{itemData[0].designation}}
+        Designation: {{itemData.designation}}
         <br>
-        Language: {{itemData[0].language}}
+        Language: {{itemData.language}}
         <br>
-        Skin colors: {{itemData[0].skin_colors}}
+        Skin colors: {{itemData.skin_colors}}
     </div>
 </template>
 
