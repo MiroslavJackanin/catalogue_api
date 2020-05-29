@@ -1,11 +1,11 @@
 <template>
-    <div class="item">
-        <people v-if="$route.params.category === 'people'" :item-data="itemData"></people>
-        <planets v-if="$route.params.category === 'planets'" :item-data="itemData"></planets>
-        <films v-if="$route.params.category === 'films'" :item-data="itemData"></films>
-        <species v-if="$route.params.category === 'species'" :item-data="itemData"></species>
-        <vehicles v-if="$route.params.category === 'vehicles'" :item-data="itemData"></vehicles>
-        <starships v-if="$route.params.category === 'starships'" :item-data="itemData"></starships>
+    <div class="items">
+        <people class="item" v-if="$route.params.category === 'people'" :item-data="itemData"></people>
+        <planets class="item" v-if="$route.params.category === 'planets'" :item-data="itemData"></planets>
+        <films class="item" v-if="$route.params.category === 'films'" :item-data="itemData"></films>
+        <species class="item" v-if="$route.params.category === 'species'" :item-data="itemData"></species>
+        <vehicles class="item" v-if="$route.params.category === 'vehicles'" :item-data="itemData"></vehicles>
+        <starships class="item" v-if="$route.params.category === 'starships'" :item-data="itemData"></starships>
     </div>
 </template>
 
@@ -34,14 +34,20 @@
         },
         methods:{
             fetchData(){
+                let myRequest;
                 let category = this.$route.params.category;
                 let item = this.$route.params.item-1;
-                const myRequest = new Request("https://swapi.dev/api/"+category+"/");
-
+                if (item/10 < 1){
+                    myRequest = new Request("https://swapi.dev/api/"+category+"/");
+                }else{
+                    item = Math.floor(item/10)+1;
+                    myRequest = new Request("https://swapi.dev/api/"+category+"/"+"?page="+item);
+                }
+                item = this.$route.params.item-1;
                 fetch(myRequest)
                     .then((response) => {return response.json()})
                     .then(data => {
-                        this.itemData = data.results[item];
+                        this.itemData = data.results[this.$route.params.item-1 - Math.floor(item/10)*10];
                     })
             },
         },
@@ -52,10 +58,22 @@
 </script>
 
 <style scoped>
+    .items{
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
     .item{
+        text-decoration: none;
+        font-size: 30px;
+        font-weight: bold;
+        color: black;
+        padding: 8px;
         border-style: solid;
-        border-color: #e8cd24;
-        min-height: 100px;
-        height: auto;
+        border-color: #0f708e;
+        border-radius: 10px;
     }
 </style>

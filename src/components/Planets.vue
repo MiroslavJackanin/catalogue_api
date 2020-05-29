@@ -1,5 +1,7 @@
 <template>
     <div class="planets">
+        {{itemData.name}}
+        <br>
         Climate: {{itemData.climate}}
         <br>
         Diameter: {{itemData.diameter}}

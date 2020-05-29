@@ -1,7 +1,11 @@
+
+
+
 <template>
     <div class="categories">
         <div v-for="(category, index) in categories" :key="index">
-            <router-link :to="{path:Object.keys(category)[0]}">{{Object.keys(category)[0]}}</router-link>
+            <div class="categoryPadding"></div>
+            <router-link class="category" :to="{path:Object.keys(category)[0]}">{{Object.keys(category)[0].charAt(0).toUpperCase() + Object.keys(category)[0].slice(1)}}</router-link>
         </div>
     </div>
 </template>
@@ -39,8 +43,24 @@
 
 <style scoped>
     .categories{
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+    .category{
+        text-decoration: none;
+        font-size: 30px;
+        font-weight: bold;
+        color: black;
+        padding: 8px;
         border-style: solid;
-        border-color: red;
-        min-height: 100px;
+        border-color: #0f708e;
+        border-radius: 10px;
+    }
+    .categoryPadding{
+        height: 25px;
     }
 </style>

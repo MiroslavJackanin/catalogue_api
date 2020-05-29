@@ -1,5 +1,8 @@
 <template>
     <div class="starships">
+        {{itemData.name}}
+        <br>
+        <br>
         Model: {{itemData.model}}
         <br>
         Length: {{itemData.length}}

@@ -1,5 +1,8 @@
 <template>
     <div class="species">
+        {{itemData.name}}
+        <br>
+        <br>
         Classification: {{itemData.classification}}
         <br>
         Designation: {{itemData.designation}}

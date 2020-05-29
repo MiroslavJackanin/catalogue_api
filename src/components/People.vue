@@ -2,6 +2,7 @@
     <div class="people">
         {{itemData.name}}
         <br>
+        <br>
         Birth year: {{itemData.birth_year}}
         <br>
         Gender: {{itemData.gender}}
